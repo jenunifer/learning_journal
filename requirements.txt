@@ -1,4 +1,4 @@
-PasteDeploy==1.5.2
+PasteDeploy==1.5.2 py
 psycopg2==2.6
 pyramid==1.5.2
 repoze.lru==0.6
