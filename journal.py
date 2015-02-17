@@ -22,8 +22,7 @@ log = logging.getLogger(__file__)
 
 @view_config(route_name='home', renderer='string')
 def home(request):
-    return "Hello Jen!  This is your first dev in Python and how awesome it is!""
-
+    return "Hello Jen!  This is your first dev in Python and how awesome it is!"
 
 def connect_db(settings):
     """Return a connection to the configured database"""
