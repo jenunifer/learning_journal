@@ -22,7 +22,8 @@ log = logging.getLogger(__file__)
 
 @view_config(route_name='home', renderer='string')
 def home(request):
-    return "Hello Jen! This is your first dev in Python and how awesome is it!"
+    return """Hello Jen! This is your first dev in Python and how awesome is it!"
+    This is also on heroku to dev the new site"""
 
 
 def connect_db(settings):
