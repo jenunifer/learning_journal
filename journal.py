@@ -6,7 +6,7 @@ from pyramid.view import view_config
 from waitress import serve
 import sqlalchemy as sa
 from sqlalchemy import create_engine
-from sqlalchemay import sessionmaker
+from sqlalchemy import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 import datetime
 from sqlalchemy.orm import scoped_session, sessionmaker

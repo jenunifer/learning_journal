@@ -10,6 +10,9 @@ TEST_DATABASE_URL = os.environ.get(
 )
 os.environ['DATABASE_URL'] = TEST_DATABASE_URL
 os.environ['TESTING'] = "True"
+
+import journal
+
 @pytest.fixture(scope='session')
 def connection(request):
     engine = create_engine(TEST_DATABASE_URL)
@@ -31,6 +34,12 @@ def db_session(request, connection):
     from journal import DBSession
     return DBSession
 
+def test_write_entry(db_session):
+    kwargs = {'title': "Test Title", 'text': "Test entry text"}
+    kwargs['session'] = db_session
+    # first, assert that there are no entries in the database:
+    assert db_session.query(journal.Entry).count() == 0
+    # now, create an entry using the 'write' class method
+    entry = journal.Entry.write(**kwargs)
 
 
-import journal
