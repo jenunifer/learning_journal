@@ -6,6 +6,7 @@ from pyramid.view import view_config
 from waitress import serve
 import sqlalchemy as sa
 from sqlalchemy import create_engine
+from sqlalchemy import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 import datetime
 from sqlalchemy.orm import scoped_session, sessionmaker
@@ -45,9 +46,15 @@ def main():
     settings['reload_all'] = debug
     settings['debug_all'] = debug
     if not os.environ.get('TESTING', False):
+<<<<<<< HEAD
 	# only bind the session if we are not testing
 	engine = sa.create_engine(DATABASE_URL)
  	DBSession.configure(bind=engine)
+=======
+        # only bind the session if we are not testing
+        engine = sa.create_engine(DATABASE_URL)
+        DBSession.configure(bind=engine)
+>>>>>>> 6166a9364650673c84d7b540f28eabf36491b387
     # configuration setup
     config = Configurator(
         settings=settings
